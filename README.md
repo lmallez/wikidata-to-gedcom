@@ -63,3 +63,4 @@ _beware of the different options you choose, some characters have a very large n
 
 * parse the name and use GIVN and SURN tags
 * use more properties of wikidata to fill gedcom (date of birth/death, weddings...)
+* find an appropriate way to enter into transactions when a wikidata entity has more than one parent

@@ -30,7 +30,7 @@ class WikidataWrapper:
         return entity
 
     def __build_character(self, entity) -> Character:
-        return entity_to_character(entity)
+        return entity_to_character(entity, self.entity_cache)
 
     def get_character(self, character_id: str, depth=0) -> Character:
         if character_id in self.entity_cache:
@@ -151,7 +151,7 @@ class WikidataWrapper:
         if character.sex == 'M' and not child.father_id:
             print('correct link "{}" -> "{}"'.format(character.id, child_id))
             child.father_id = character.id
-        if character.sex == 'F' and not child.father_id:
+        if character.sex == 'F' and not child.mother_id:
             print('correct link "{}" -> "{}"'.format(character.id, child_id))
             child.mother_id = character.id
 
