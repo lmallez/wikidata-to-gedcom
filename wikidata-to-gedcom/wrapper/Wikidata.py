@@ -18,9 +18,9 @@ class WikidataWrapper:
     allow_men = True
     load_children = True
     load_parents = True
-    men_descendant = True
+    men_descendants = True
     men_ascendant = True
-    women_descendant = True
+    women_descendants = True
     women_ascendant = True
 
     def __get_entity(self, character_id) -> Entity:
@@ -75,8 +75,8 @@ class WikidataWrapper:
                 recursive_call(mother, depth - 1)
 
     def __descendants_by_sex(self, character):
-        return ((not self.men_descendant and character.sex is 'M')
-                or (not self.women_descendant and character.sex is 'F')) \
+        return ((not self.men_descendants and character.sex is 'M')
+                or (not self.women_descendants and character.sex is 'F')) \
                and character.id != self.root.id
 
     def __remove_by_sex(self, character):
