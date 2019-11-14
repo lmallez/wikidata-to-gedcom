@@ -47,15 +47,16 @@ class GedcomExporter:
 
     def create_family_element(self, family: Family):
         element = Element(0, '@{}@'.format(family.id), 'FAM', '')
-        if family.father_id:
+        if family.father_id and family.father_id in self.characters.keys():
             element.new_child_element('HUSB', '', '@{}@'.format(family.father_id))
             self.elements[family.father_id].new_child_element('FAMS', '', '@{}@'.format(family.id))
-        if family.mother_id:
+        if family.mother_id and family.father_id in self.characters.keys():
             element.new_child_element('WIFE', '', '@{}@'.format(family.mother_id))
             self.elements[family.mother_id].new_child_element('FAMS', '', '@{}@'.format(family.id))
         for child_id in family.children_ids:
-            element.new_child_element('CHIL', '', '@{}@'.format(child_id))
-            self.elements[child_id].new_child_element('FAMC', '', '@{}@'.format(family.id))
+            if child_id in self.characters.keys():
+                element.new_child_element('CHIL', '', '@{}@'.format(child_id))
+                self.elements[child_id].new_child_element('FAMC', '', '@{}@'.format(family.id))
         self.elements[family.id] = element
 
     def collect_elements(self):

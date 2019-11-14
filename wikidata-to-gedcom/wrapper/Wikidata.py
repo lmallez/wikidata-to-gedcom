@@ -19,9 +19,9 @@ class WikidataWrapper:
     load_children = True
     load_parents = True
     men_descendants = True
-    men_ascendant = True
+    men_ascendants = True
     women_descendants = True
-    women_ascendant = True
+    women_ascendants = True
 
     def __get_entity(self, character_id) -> Entity:
         entity = self.client.get(EntityId(character_id), load=True)
@@ -67,11 +67,11 @@ class WikidataWrapper:
         self.__ascendant_cache.append(character.id)
         if self.allow_men and character.father_id:
             father = self.get_character(character.father_id, depth=depth - 1)
-            if father and self.men_ascendant:
+            if father and self.men_ascendants:
                 recursive_call(father, depth - 1)
         if self.allow_women and character.mother_id:
             mother = self.get_character(character.mother_id, depth=depth - 1)
-            if mother and self.women_ascendant:
+            if mother and self.women_ascendants:
                 recursive_call(mother, depth - 1)
 
     def __descendants_by_sex(self, character):

@@ -27,10 +27,10 @@ class ArgParse(argparse.ArgumentParser):
         self.add_argument('--max-depth', type=int, default=10, help='maximum number of generation differences')
         self.add_argument('--allow-men', type=str2bool, default=True, help='add men in gedcom')
         self.add_argument('--men-descendants', type=str2bool, default=True, help='add men descendants (can\'t be activate if `allow-men` is false)')
-        self.add_argument('--men-ascendant', type=str2bool, default=True, help='add men ascendants (can\'t be activate if `allow-men` is false)')
+        self.add_argument('--men-ascendants', type=str2bool, default=True, help='add men ascendants (can\'t be activate if `allow-men` is false)')
         self.add_argument('--allow-women', type=str2bool, default=True, help='add women in gedcom')
         self.add_argument('--women-descendants', type=str2bool, default=True, help='add women descendants (can\'t be activate if `allow-women` is false)')
-        self.add_argument('--women-ascendant', type=str2bool, default=True, help='add women ascendants (can\'t be activate if `allow-women` is false)')
+        self.add_argument('--women-ascendants', type=str2bool, default=True, help='add women ascendants (can\'t be activate if `allow-women` is false)')
         self.add_argument('--load-parents', type=str2bool, default=False, help='add the parents of each character')
         self.add_argument('--load-children', type=str2bool, default=False, help='add the children of each character')
         self.add_argument('--enable-correction', type=str2bool, default=True, help='add missing wikidata links')
@@ -42,14 +42,14 @@ class ArgParse(argparse.ArgumentParser):
         print('{}={}'.format('allow_men', wikidata.allow_men))
         wikidata.men_descendants = self.args.men_descendants and wikidata.allow_men
         print('{}={}'.format('men_descendants', wikidata.men_descendants))
-        wikidata.men_ascendant = self.args.men_ascendant and wikidata.allow_men
-        print('{}={}'.format('men_ascendant', wikidata.men_ascendant))
+        wikidata.men_ascendants = self.args.men_ascendants and wikidata.allow_men
+        print('{}={}'.format('men_ascendants', wikidata.men_ascendants))
         wikidata.allow_women = self.args.allow_women
         print('{}={}'.format('allow_women', wikidata.allow_women))
         wikidata.women_descendants = self.args.women_descendants and wikidata.allow_women
         print('{}={}'.format('women_descendants', wikidata.women_descendants))
-        wikidata.women_ascendant = self.args.women_ascendant and wikidata.allow_women
-        print('{}={}'.format('women_ascendant', wikidata.women_ascendant))
+        wikidata.women_ascendants = self.args.women_ascendants and wikidata.allow_women
+        print('{}={}'.format('women_ascendants', wikidata.women_ascendants))
         wikidata.load_parents = self.args.load_parents
         print('{}={}'.format('load_parents', wikidata.load_parents))
         wikidata.load_children = self.args.load_children
