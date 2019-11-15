@@ -15,6 +15,7 @@ usage: WikidataToGedcom.py [-h] [--max-depth MAX_DEPTH]
                            [--load-parents LOAD_PARENTS]
                            [--load-children LOAD_CHILDREN]
                            [--enable-correction ENABLE_CORRECTION]
+                           [--thread-max THREAD_MAX]
                            id {all,desc,asc,linear} output
 ```
 
@@ -33,6 +34,7 @@ usage: WikidataToGedcom.py [-h] [--max-depth MAX_DEPTH]
 | load-parents      | bool | False   | add the parents of each character                                  |
 | load-children     | bool | False   | add the children of each character                                 |
 | enable-correction | bool | True    | add missing wikidata links                                         |
+| thread-max        | int  | 100     | maximum number of threads                                          |
 
 | methods of gedcom generation | description                                              |
 |-----------------------------|-----------------------------------------------------------|
