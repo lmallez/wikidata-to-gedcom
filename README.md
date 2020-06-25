@@ -1,3 +1,5 @@
+**complete refactor of this project here :** https://github.com/lmallez/wikidata-tree-generator
+
 # wikidata-to-gedcom
 
 use wikidata lineage to generate a gedcom file
